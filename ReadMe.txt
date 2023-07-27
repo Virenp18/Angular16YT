@@ -1,3 +1,10 @@
+Git Important Commands
+1. git status
+2. git add .
+3. git pull origin master
+4. git commit -m "message"
+5. git push -u origin master
+
 ====>> Installing the angular
 
         npm install -g @angular/cli
