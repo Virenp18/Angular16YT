@@ -1,0 +1,50 @@
+<!-- <app-task-one></app-task-one> -->
+
+<app-directives></app-directives>
+
+
+
+<!-- data sharing of parent to child component where fromParent is a reference and parent_message is coming form app.component.ts -->
+<!-- <app-navbar [fromParent]="parent_message"></app-navbar> -->
+
+<!-- sendMssg coming from post component and making a new function which will be in app.ts file -->
+<!-- <app-post (sendMssg) = 'child_mssg($event)'></app-post> -->
+
+<!-- showing the msg here which came form @output and stored in variable in app ts file -->
+<!-- <p id="evnt_msg">{{eventMsg}}</p>
+<p>{{childMessage}}</p>
+
+<p>{{demoMssg}}</p> -->
+
+<!-- Property Binding -->
+
+<!-- This is a normal way to bind without angular -->
+<!-- <img src="{{img_url}}" alt="Demo Image"> -->
+
+<!-- Hwo to bind in angular -->
+<!-- <img [src] = 'img_url'> -->
+
+<!-- Class Binding -->
+<!-- We will apply a condition when a bool value is true then show color red, go to html file and set a variable -->
+<!-- It shows that if the variable demo_bool is true then apple the class .text-red -->
+<!-- <h3 [class.text-red] ='demo_bool'>Class Binding</h3> -->
+
+<!-- Style binding -->
+<!-- It shows that if the variable demo_bool is true then apply the color property of style as red else blue with turnary operator. -->
+<!-- You can use https://www.w3schools.com/jsref/dom_obj_style.asp for style properties -->
+<!-- <h2 [style.color] = "!demo_bool ? 'red' : 'blue'">Style Binding</h2> -->
+
+<!-- Event Binding -->
+<!-- <p (dblclick)="parah_double()" [style.cursor] = "demo_bool ? 'pointer': ''">Double Click Mee!</p> -->
+
+<!-- Event FIltering -->
+<!-- We will only call the method whenever the Ender key is pressed. -->
+<!-- <input (keyup.enter)="EnterPress()" type="text"/> -->
+
+<!-- Template Binding -->
+<!-- <label for="">Template Binding</label>
+<input type="text" (keyup.esc)="getValue(username.value)" #username/> -->
+
+<!-- Two Way Data Binding -->
+<!-- <label for="">Two Way Data Binding</label>
+<input type="text" [(ngModel)] = 'userName' (keyup.enter)="getUserName(userName)" /> -->

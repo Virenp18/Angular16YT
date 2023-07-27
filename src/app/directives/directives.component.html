@@ -1,0 +1,85 @@
+<h1 class="heading">Angular Directives</h1>
+<ol>
+    <li>*ngFor Directives (Fetching String Array)</li><br>
+    <ul>
+        <!-- let assigned variable from the reference variable coming from ts file -->
+        <li *ngFor="let post of post_array">
+            {{post}}
+            <button (click) = "removeFriend(post)">Remove</button>
+        </li><br>
+        <button (click)="addFriend()">Add Olajumoke</button>
+    </ul>
+    <br>
+
+    <li>*ngFor Directives (Fetching Object Array)</li><br>
+    <ul>
+        <!-- Using Indexing Method -->
+        <!-- Just assign i as index in ng for and pass it to the method parameter which will capture the target remove button index -->
+        <li *ngFor="let obj_arr of object_array; let i = index">
+            {{ obj_arr.post_title }}
+            <button (click) = "removeObject(i)">Remove</button>
+        </li><br>
+        <button (click)="addObject()">Add Object</button>
+    </ul>
+    <br>
+
+    <li>*ngIf Directives</li><br>
+    <div *ngIf="object_array.length > 0">
+        <ul>
+            <!-- Using Indexing Method -->
+            <!-- Just assign i as index in ng for and pass it to the method parameter which will capture the target remove button index -->
+            <li *ngFor="let obj_arr of object_array; let i = index">
+                {{ obj_arr.post_title }}
+                <button (click) = "removeObject(i)">Remove</button>
+            </li><br>
+            <button (click)="addObject()">Add Object</button>
+        </ul>
+    </div>
+    <div *ngIf="object_array.length == 0">No Data found..</div><br>
+
+    <li>*ngTemplate Directives(First Approach)</li><br>
+    <!-- In this approach we will -->
+    <div *ngIf="object_array.length > 0; else noObj;">
+        <ul>
+            <!-- Using Indexing Method -->
+            <!-- Just assign i as index in ng for and pass it to the method parameter which will capture the target remove button index -->
+            <li *ngFor="let obj_arr of object_array; let i = index">
+                {{ obj_arr.post_title }}
+                <button (click) = "removeObject(i)">Remove</button>
+            </li><br>
+            <button (click)="addObject()">Add Object</button>
+        </ul>
+    </div>
+    <ng-template #noObj>No Data Found</ng-template><br>
+
+    <li>*ngTemplate Directives(Second Approach)</li><br>
+    <div *ngIf="object_array.length > 0; then ObjData else noObjdata;"></div>
+    <ng-template #ObjData>
+        <ul>
+            <!-- Using Indexing Method -->
+            <!-- Just assign i as index in ng for and pass it to the method parameter which will capture the target remove button index -->
+            <li *ngFor="let obj_arr of object_array; let i = index">
+                {{ obj_arr.post_title }}
+                <button (click) = "removeObject(i)">Remove</button>
+            </li><br>
+            <button (click)="addObject()">Add Object</button>
+        </ul>
+    </ng-template>
+    <ng-template #noObjdata>
+        No Data Found..
+    </ng-template>
+
+    <li>ngSwitch Directive</li><br>
+    <!-- We will create three buttons and on clicking each button we will tell what is the message in that button using switch  -->
+    <button (click)="clickMe('1')">Step 1</button>
+    <button (click)="clickMe('2')">Step 2</button>
+    <button (click)="clickMe('3')">Step 3</button>
+
+    <div [ngSwitch]="button">
+        <p *ngSwitchCase="'1'"> This is a message from Button 1.</p>
+        <p *ngSwitchCase="'2'"> This is a message from Button 2.</p>
+        <p *ngSwitchCase="'3'"> This is a message from Button 3</p>
+        <p *ngSwitchDefault>{{button}}</p>
+        
+    </div>
+</ol>

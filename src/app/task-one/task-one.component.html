@@ -1,0 +1,14 @@
+<div class="align-center">
+    <h1>Post</h1>
+    <br>
+    <input type="text" [(ngModel)] = 'input1' /><br><br>
+    <textarea name="" id="" cols="30" rows="10" [(ngModel)] = 'textareainput'></textarea><br><br>
+    <input type="text" [(ngModel)] = 'showImage' /><br><br>
+    <input type="checkbox" [(ngModel)] = 'tryCheck' />
+</div>
+<div class="results">
+    <p>{{input1}}</p>
+    <p [style.border] = "tryCheck ? '5px solid red' : ''">{{textareainput}}</p>
+    <img [src]='showImage' />
+</div>
+
