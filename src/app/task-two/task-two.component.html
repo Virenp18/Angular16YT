@@ -1,0 +1,37 @@
+<h1 [ngClass]="{
+    'center' : isValid
+}">Task Two (ng Directives)</h1>
+<div [ngClass]="{ 'center' : isValid }">
+    <h3>User Details</h3>
+    <input type="text" placeholder="Name" [(ngModel)]="input_name"><br><br>
+    <input type="text" placeholder="E-Mail" [(ngModel)] = "input_mail"><br><br>
+    <textarea cols="30" rows="10" placeholder="Address" [(ngModel)] = "input_address"></textarea><br><br>
+    <button (click)="addUser()">Save Data</button><br><br>
+</div>
+<table [ngClass]="{ 'center-tbl': isValid }">
+    <thead>
+        <th>#</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>Action</th>
+    </thead>
+    <tbody>
+        <div *ngIf="userArray.length > 0 then data else noData"></div>
+        <ng-template #noData>
+            <tr>
+                <td colspan="5" [ngClass]="{ 'center' : isValid }"> No Data found!</td>
+            </tr>
+        </ng-template>
+        <ng-template #data>
+            <tr *ngFor="let data of userArray; let i = index;">
+                <td>{{i + 1}}</td>          
+                <td>{{data.name}}</td>          
+                <td>{{data.email}}</td>          
+                <td>{{data.address}}</td>          
+                <td><button (click)="delRow(i)">Delete</button></td>          
+             </tr>
+        </ng-template>
+        
+    </tbody>
+</table>

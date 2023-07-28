@@ -2,3 +2,11 @@
     display: flex;
     justify-content: center;
 }
+/* Using this in ngClass Directive */
+.text-blue{
+    color: blue;
+}
+/* Using this in ngClass Directive */
+.text-caps{
+    text-transform: uppercase;
+}

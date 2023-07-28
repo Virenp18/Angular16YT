@@ -1,0 +1,23 @@
+<h1 [ngClass]="{ 'center': isValid }">Angular Pipes</h1>
+<p>There are 8 different types of pipes in Angular Pipes.</p>
+<ol>
+    <li *ngFor="let pipes of angular_pipes;">{{pipes}}</li>
+</ol>
+<ul>
+    <li>{{angular_pipes[0]}}</li>
+    <p>{{pip_uppercase | uppercase}}</p>
+
+    <li>{{angular_pipes[1]}}</li>
+    <p>{{pip_lowercase | lowercase}}</p>
+
+    <li>{{angular_pipes[2]}}</li>
+    <!-- number: 'how many digit before decimal . minimum val - maximum value' -->
+    <!-- Note it will round off if greater than or equal to 5 -->
+    <p>{{pip_decimal | number : '5.1-2'}}</p>
+    <p>{{pip_number | number}}</p>
+
+    <li>{{angular_pipes[3]}}</li>
+    <!-- Googgle for different ISO Currency Codes -->
+    <!-- It takes three arg one is ISO code , second is if we want to show currency symbol if true and ISO code if false , last is the decimal with min and max as done in decimal pipe. -->
+    <p>{{pip_currency | currency : 'INR' : true : '5.1-2'}}</p>
+</ul>

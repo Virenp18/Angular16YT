@@ -82,4 +82,17 @@
         <p *ngSwitchDefault>{{button}}</p>
         
     </div>
+
+    <li>ngStyle Directive</li>
+    <p [ngStyle]="{
+        color : is_Valid ? 'red' : 'green',
+        textTransform : is_Valid ? 'uppercase' : 'lowercase'
+    }">This is an example paragraph for ngStyle directive.</p>
+
+    <li>ngClass Directive</li>
+    <!-- We have to use as an object and provide the boolean values to the class and if the boolean value is true than that class will be applied -->
+    <p [ngClass]="{
+       'text-blue' : is_Valid,
+       'text-caps' : !is_Valid
+    }">This is an example paragraph for ngClass directive.</p>
 </ol>

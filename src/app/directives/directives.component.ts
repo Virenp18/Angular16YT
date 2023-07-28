@@ -17,7 +17,11 @@ export class DirectivesComponent {
   ];
   // create a varibale for storing the button no in clickMe()
   button:string = "Try clicking at any of the above buttons.";
+  // creating the flag for ngStyle directive
+  is_Valid:boolean = true;
+
   constructor(){}
+
   addFriend(){
     // This is a example of Change Detection
     this.post_array.push("Olajumoke");

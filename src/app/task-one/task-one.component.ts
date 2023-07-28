@@ -6,8 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./task-one.component.css']
 })
 export class TaskOneComponent {
-  input1:any;
-  textareainput:any;
-  showImage:any;
+  input1:string = '';
+  textareainput:string = '';
+  showImage:string = '';
   tryCheck:any;
 }
