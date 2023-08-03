@@ -9,8 +9,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 
 export class AppComponent implements AfterViewInit {
   title = 'my-first-app';
-  // declare an variable to show this on child component
-  parent_message:any = 'This is a message coming form App component parent.';
+  // declare an variable to show this on child component @input decorator starts here
+  parent_message:string = 'This is a message coming form App component parents.';
   childMessage:any;
   eventMsg:any;
   demoMssg:string = 'Demo Text!';
@@ -34,7 +34,7 @@ export class AppComponent implements AfterViewInit {
   }
   // sending the msg bak to html file after getting from app.html file
   child_mssg($event:any){
-      this.eventMsg = $event;
+      this.eventMsg = $event;      
   }
   parah_double(){
     console.log('Double Clicked!');    

@@ -8,19 +8,20 @@
 <!-- <app-task-two></app-task-two> -->
 
 <!-- Learn about angular pipes -->
-<app-pipes></app-pipes>
+<!-- <app-pipes></app-pipes> -->
 
 <!-- data sharing of parent to child component where fromParent is a reference and parent_message is coming form app.component.ts -->
 <!-- <app-navbar [fromParent]="parent_message"></app-navbar> -->
 
-<!-- sendMssg coming from post component and making a new function which will be in app.ts file -->
-<!-- <app-post (sendMssg) = 'child_mssg($event)'></app-post> -->
+<!-- sendMssg coming from (child->parent) post component and making a new function which will be in app.ts file -->
+<!-- Uncomment the next code for getting the click result -->
+<app-post (sendMssg) = 'child_mssg($event)'></app-post>
 
 <!-- showing the msg here which came form @output and stored in variable in app ts file -->
-<!-- <p id="evnt_msg">{{eventMsg}}</p>
+<p id="evnt_msg">{{eventMsg}}</p>
 <p>{{childMessage}}</p>
 
-<p>{{demoMssg}}</p> -->
+<!-- <p>{{demoMssg}}</p> -->
 
 <!-- Property Binding -->
 

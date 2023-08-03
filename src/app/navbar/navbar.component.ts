@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from "@angular/core";
 
 export class NavbarComponent implements OnInit{
     // this is an example of Parent to child data sharing coming from app.component.html file top navbar.component.ts
-    @Input() fromParent: any;
+    @Input() fromParent: string = '';
     // assign a variable here from child -> parent data sharing
     messageFromChild : any = "This is a message coming form navbar child component";
 

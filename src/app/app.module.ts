@@ -10,6 +10,7 @@ import { TaskOneComponent } from './task-one/task-one.component';
 import { DirectivesComponent } from './directives/directives.component';
 import { TaskTwoComponent } from './task-two/task-two.component';
 import { PipesComponent } from './pipes/pipes.component';
+import { CustomPipe } from './pipe/custom.pipe';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { PipesComponent } from './pipes/pipes.component';
     TaskOneComponent,
     DirectivesComponent,
     TaskTwoComponent,
-    PipesComponent
+    PipesComponent,
+    CustomPipe,
   ],
   imports: [
     BrowserModule,
