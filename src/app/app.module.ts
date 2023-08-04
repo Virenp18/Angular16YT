@@ -11,6 +11,7 @@ import { DirectivesComponent } from './directives/directives.component';
 import { TaskTwoComponent } from './task-two/task-two.component';
 import { PipesComponent } from './pipes/pipes.component';
 import { CustomPipe } from './pipe/custom.pipe';
+import { FormsComponent } from './forms/forms.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { CustomPipe } from './pipe/custom.pipe';
     TaskTwoComponent,
     PipesComponent,
     CustomPipe,
+    FormsComponent,
   ],
   imports: [
     BrowserModule,

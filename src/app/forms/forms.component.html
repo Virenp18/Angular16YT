@@ -1,0 +1,32 @@
+<div class="container mt-5">
+    <div class="form-area">
+        <form  #form_data='ngForm' (submit)="form_submit(form_data)">
+            <div class="form-group">
+                <label>Full Name</label>
+                <input
+                 type="text"
+                 name="fullname"
+                 id=""
+                 class="form-control" 
+                 placeholder="Enter Full Name" 
+                 ngModel 
+                 required
+                 #name_ipt="ngModel"
+                 (change)="onNameChge(name_ipt)" 
+                 [ngClass]="{'is-invalid' : name_ipt.invalid && name_ipt.touched,'is-valid' : name_ipt.touched && name_ipt.valid}"
+                 />
+                 <div class="alert alert-danger" *ngIf="name_ipt.invalid && name_ipt.touched">Full Name id Required</div>
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" name="email" id="" placeholder="Enter Email"  class="form-control" ngModel required ngModel/>
+            </div>
+            <div class="form-group">
+                <label>Address</label>
+                <textarea name="address" id="" cols="30" rows="10" placeholder="Enter Address" class="form-control" ngModel></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>    
+</div>

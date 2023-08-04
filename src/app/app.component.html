@@ -15,11 +15,11 @@
 
 <!-- sendMssg coming from (child->parent) post component and making a new function which will be in app.ts file -->
 <!-- Uncomment the next code for getting the click result -->
-<app-post (sendMssg) = 'child_mssg($event)'></app-post>
+<!-- <app-post (sendMssg) = 'child_mssg($event)'></app-post> -->
 
 <!-- showing the msg here which came form @output and stored in variable in app ts file -->
-<p id="evnt_msg">{{eventMsg}}</p>
-<p>{{childMessage}}</p>
+<!-- <p id="evnt_msg">{{eventMsg}}</p>
+<p>{{childMessage}}</p> -->
 
 <!-- <p>{{demoMssg}}</p> -->
 
@@ -55,3 +55,6 @@
 <!-- Two Way Data Binding -->
 <!-- <label for="">Two Way Data Binding</label>
 <input type="text" [(ngModel)] = 'userName' (keyup.enter)="getUserName(userName)" /> -->
+
+<!-- Angular Forms -->
+<app-forms></app-forms>

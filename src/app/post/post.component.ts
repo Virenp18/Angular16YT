@@ -1,5 +1,6 @@
 import { Component,OnInit,Output,EventEmitter } from '@angular/core';
 import { DemoService } from '../services/demo.service';
+import { Demo } from '../models/demo';
 
 @Component({
   selector: 'app-post',
@@ -22,5 +23,13 @@ export class PostComponent implements OnInit {
 
   ClickMe(){
     this.sendMssg.emit(this.messageToSend);    
+  }
+  addNewObj(){
+    // here adding data of Demo type is telling the data to follow the blueprint of Demo interface
+    let data : Demo = {
+      id : 4,
+      title : 'jkl'
+    };
+    this.demoService.pushData(data);    
   }
 }

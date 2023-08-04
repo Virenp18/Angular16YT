@@ -53,3 +53,13 @@ Write in cmd not in vs terminal
                 Note : all the angular service is under one folder named as services
                 => ng g s services/"name of service"
 
+====>> Angular Interface
+        Let's take an example , if we are pushing a data lets say an object in the array of objects with the key "id" and "postTitle" and by human error we have misspelled the "postTitle -> posttitle". So to remove such type of an error we will use Angular Interface which will help us to make the blueprint of the data that how should it must look like and if any error occurred it will throw it.
+        
+        To create an interface in angular we will use CLI to generate it.
+        => ng g i models/"name of interface"
+
+====>> Angular Form Types
+        Form types in Angular Forms
+        1. Template - Driven Form
+        2. Reactive Form

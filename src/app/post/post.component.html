@@ -2,6 +2,8 @@
 <button (click)='ClickMe()'>Click me</button>
 <!-- Example of dependency injection and angular service  -->
 <h2>Angular Service CLI</h2>
+<!-- Create a button which will add dtaa to the array -->
+<button (click)="addNewObj()">Add New</button>
 <ul>
     <li *ngFor="let arr of demoServiceArray">
         {{arr.title}}

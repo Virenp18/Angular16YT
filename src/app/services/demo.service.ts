@@ -11,6 +11,10 @@ export class DemoService {
     {id: 2,title:"def"},
     {id: 3,title:"ghi"},
   ];
-  
-  constructor() { }  
+   
+  constructor() { }
+  // declare all the methods here
+  pushData(data:any){
+    this.demoArray.push(data);
+  }
 }
