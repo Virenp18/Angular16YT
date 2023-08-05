@@ -62,4 +62,11 @@ Write in cmd not in vs terminal
 ====>> Angular Form Types
         Form types in Angular Forms
         1. Template - Driven Form
+                We need to first of all have ot import the formmodule in module.ts file.
+                We have to create the new instance of a two class.
+                        1. formGroup Class  -> inside <form> tags with ngForm
+                         => ex. <form #empForm = 'ngForm' (submit) = 'OnSubmit(empForm)'></form>
+                        2. formCon1trol Class -> inside input fields with ngModel
+                         => ex. <input type="text" name="id" ngModel #id_ipt='ngModel (change) = 'onChange(id_ipt)'/>
         2. Reactive Form
+                We need to first of all have ot import the reactformmodule in module.ts file.

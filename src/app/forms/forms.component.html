@@ -1,3 +1,4 @@
+<!-- This was about angular Template driven form -->
 <div class="container mt-5">
     <div class="form-area">
         <form  #form_data='ngForm' (submit)="form_submit(form_data)">
@@ -11,22 +12,71 @@
                  placeholder="Enter Full Name" 
                  ngModel 
                  required
-                 #name_ipt="ngModel"
-                 (change)="onNameChge(name_ipt)" 
-                 [ngClass]="{'is-invalid' : name_ipt.invalid && name_ipt.touched,'is-valid' : name_ipt.touched && name_ipt.valid}"
+                 #nameipt='ngModel'
+                 (change)="onNameChge(nameipt)" 
+                 [ngClass]="{
+                    'is-invalid' : nameipt.invalid && nameipt.touched, 
+                    'is-valid' : nameipt.touched && nameipt.valid
+                 }"
+                 minlength="5"
+                 maxlength="10"
                  />
-                 <div class="alert alert-danger" *ngIf="name_ipt.invalid && name_ipt.touched">Full Name id Required</div>
+                 <div *ngIf="nameipt.errors?.['required']">
+                     <div class="alert alert-danger" *ngIf="nameipt.invalid && nameipt.touched">Full Name id Required</div>                    
+                 </div>
+                 <div *ngIf="nameipt.errors?.['minlength']">
+                     <div class="alert alert-danger" *ngIf="nameipt.invalid && nameipt.touched">Full Name must be atleast 5 words.</div>                    
+                 </div>
             </div>
+
             <div class="form-group">
                 <label>Email</label>
-                <input type="email" name="email" id="" placeholder="Enter Email"  class="form-control" ngModel required ngModel/>
+                <input 
+                type="email" 
+                name="email" 
+                id="" placeholder="Enter Email"  
+                class="form-control" 
+                ngModel 
+                required
+                #email_ipt="ngModel"
+                pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
+                [ngClass]="{
+                    'is-valid' : !email_ipt.invalid && email_ipt.touched,
+                    'is-invalid' : email_ipt.invalid && email_ipt.touched
+                }"
+                />
+                <div *ngIf="email_ipt.errors?.['required']">
+                    <div class="alert alert-danger" *ngIf="email_ipt.invalid && email_ipt.touched">Email id Required</div>                    
+                </div>
+                <div *ngIf="email_ipt.errors?.['pattern']">
+                    <div class="alert alert-danger" *ngIf="email_ipt.invalid && email_ipt.touched">Invalid Email Address</div>                    
+                </div>
             </div>
+
             <div class="form-group">
                 <label>Address</label>
-                <textarea name="address" id="" cols="30" rows="10" placeholder="Enter Address" class="form-control" ngModel></textarea>
+                <textarea 
+                name="address" 
+                id="" 
+                cols="30" 
+                rows="10" 
+                placeholder="Enter Address" 
+                class="form-control" 
+                ngModel
+                #textArea_ipt = 'ngModel'
+                required
+                [ngClass]="{
+                    'is-valid' : textArea_ipt.valid && textArea_ipt.touched,
+                    'is-invalid' : textArea_ipt.invalid && textArea_ipt.touched
+                }"
+                >
+                </textarea>
+                <div *ngIf="textArea_ipt.errors?.['required']">
+                    <div class="alert alert-danger" *ngIf="textArea_ipt.touched && textArea_ipt.invalid">Address is required.</div>
+                </div>
             </div>
             
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary" [disabled]="form_data.invalid">Submit</button>
         </form>
     </div>    
 </div>
