@@ -1,0 +1,45 @@
+<div class="container mt-5">
+    <div class="form-area">
+        <h2>Angular - Custom Form Validation (Using Form Builder)</h2>
+        <hr>
+        <form [formGroup]="customValForm" (submit)="customFormSub()">
+            <div class="form-group">
+                <label for="">Username</label>
+                <input 
+                type="text" 
+                name="username" 
+                id="" 
+                class="form-control"
+                formControlName="fc_usrname"
+                [ngClass]="{
+                    'is-invalid' : fc.fc_usrname.touched && fc.fc_usrname.invalid,
+                    'is-valid' : fc.fc_usrname.touched && fc.fc_usrname.valid
+                }"
+                />
+                <div class="alert alert-danger" *ngIf="fc.fc_usrname.touched && fc.fc_usrname.invalid">
+                    <div *ngIf="fc.fc_usrname.errors?.['required']">Username is required...</div>
+                    <div *ngIf="fc.fc_usrname.errors?.['no_space']">No space allowed in username....</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="">Password</label>
+                <input 
+                type="password" 
+                name="" 
+                id="" 
+                class="form-control"
+                formControlName="fc_pswd"
+                [ngClass]="{
+                    'is-invalid' : fc.fc_pswd.touched && fc.fc_pswd.invalid,
+                    'is-valid' : fc.fc_pswd.touched && fc.fc_pswd.valid
+                }"
+                />
+                <div class="alert alert-danger" *ngIf="fc.fc_pswd.touched && fc.fc_pswd.invalid">
+                    <div *ngIf="fc.fc_pswd.errors?.['required']">Password is required...</div>
+                    <div *ngIf="fc.fc_pswd.errors?.['strictPass']">Password must be of minimum eight characters, at least one upper case English letter, one lower case English letter, one number and one special character</div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary" [disabled]="customValForm.invalid">Login</button>
+        </form>
+    </div>    
+</div>

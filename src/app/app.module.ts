@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +12,7 @@ import { TaskTwoComponent } from './task-two/task-two.component';
 import { PipesComponent } from './pipes/pipes.component';
 import { CustomPipe } from './pipe/custom.pipe';
 import { FormsComponent } from './forms/forms.component';
+import { CusformvalComponent } from './cusformval/cusformval.component';
 
 @NgModule({
   declarations: [
@@ -24,11 +25,13 @@ import { FormsComponent } from './forms/forms.component';
     PipesComponent,
     CustomPipe,
     FormsComponent,
+    CusformvalComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

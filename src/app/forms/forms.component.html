@@ -1,6 +1,7 @@
 <!-- This was about angular Template driven form -->
 <div class="container mt-5">
     <div class="form-area">
+        <h2>Angular - Template Driven Form</h2>
         <form  #form_data='ngForm' (submit)="form_submit(form_data)">
             <div class="form-group">
                 <label>Full Name</label>
@@ -78,5 +79,104 @@
             
             <button type="submit" class="btn btn-primary" [disabled]="form_data.invalid">Submit</button>
         </form>
-    </div>    
+    </div>
+    <hr>   
+    <div class="from-area">
+        <h2>Angular - Reactive Form</h2>
+        <form [formGroup]="reactiveForm" (submit)="submitReactiveForm()">
+            <div formGroupName="fullName">
+                <div class="form-group">
+                    <label for="">First Name</label>
+                    <input 
+                    type="text" 
+                    name="firstName" 
+                    id="" 
+                    class="form-control" 
+                    placeholder="Enter First Name"
+                    formControlName = 'firstName'
+                    [ngClass]="{
+                        'is-valid' : FirstName.touched && FirstName.valid,
+                        'is-invalid' : FirstName.touched && FirstName.invalid
+                    }"
+                    >
+                    <div *ngIf="FirstName.touched && FirstName.invalid" class="alert alert-danger">
+                        <div *ngIf="FirstName.errors?.['required']">First name is required</div>
+                        <div *ngIf="FirstName.errors?.['minlength']">First name must be atleast 5 character long</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="">Last Name</label>
+                    <input 
+                    type="text" 
+                    name="lastName" 
+                    id="" 
+                    class="form-control" 
+                    placeholder="Enter Last Name"
+                    formControlName = 'lastName'
+                    [ngClass]="{
+                        'is-valid' : LastName.touched && LastName.valid,
+                        'is-invalid' : LastName.touched && LastName.invalid
+                    }"
+                    >
+                    <div *ngIf="LastName.touched && LastName.invalid" class="alert alert-danger">
+                        <div *ngIf="LastName.errors?.['required']">Last name is required</div>
+                        <div *ngIf="LastName.errors?.['maxlength']">Last name must be atleast 1 character long</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input 
+                type="email" 
+                name="email" 
+                id="" 
+                class="form-control" 
+                placeholder="Enter E-Mail Address"
+                formControlName = "email"
+                autocomplete="off"
+                [ngClass]="{
+                    'is-invalid' : Email.invalid && Email.touched,
+                    'is-valid' : Email.valid && Email.touched
+                }"
+                >
+                <div class="alert alert-danger" *ngIf="Email.touched && Email.invalid">
+                    <div *ngIf="Email.errors?.['required']">Email is required</div>
+                    <div *ngIf="Email.errors?.['email']">Invalid E-mail Address</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Address</label>
+                <textarea 
+                name="address" 
+                id="" 
+                cols="30" 
+                rows="10" 
+                class="form-control" 
+                placeholder="Enter Address"
+                formControlName = 'address'
+                [ngClass]="{
+                    'is-invalid' : Address.invalid && Address.touched,
+                    'is-valid' : Address.valid && Address.touched
+                }"
+                ></textarea>
+                <div class="alert alert-danger" *ngIf="Address.touched && Address.invalid">
+                    <div *ngIf="Address.errors?.['required']">Address is required.</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="">Skills</label>
+                <input 
+                class="form-control"
+                type="text" 
+                #skills
+                (keyup.enter) = 'addSkill(skills)' 
+                />
+                <ul class="list-group">
+                    <li class="list-group-item" *ngFor="let skill of Skills.controls; let i = index;">{{skill.value}}  <a class="btn btn-sm btn-outline-danger" (click)="deleteSkill(i)"> X </a></li>                    
+                </ul>
+            </div>
+            <button class="btn btn-primary" type="submit" [disabled]="reactiveForm.invalid">Submit</button>
+        </form>
+    </div>
+    <br> 
 </div>

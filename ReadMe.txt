@@ -69,4 +69,25 @@ Write in cmd not in vs terminal
                         2. formCon1trol Class -> inside input fields with ngModel
                          => ex. <input type="text" name="id" ngModel #id_ipt='ngModel (change) = 'onChange(id_ipt)'/>
         2. Reactive Form
-                We need to first of all have ot import the reactformmodule in module.ts file.
+                NOTE : For this approach make sure you have import the modules in app.module.ts
+                1. we have to make the constructor and in that we have initialize the formg group and inside we will initializecform control for each input.
+                Ex : this.reactiveForm = new FormGroup({
+                        fullName : new FormControl('',[
+                                Validators.required,
+                                Validators.minLength(5)
+                        ]),
+                        email : new FormControl('',[
+                                Validators.required,
+                                Validators.pattern('[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$')
+                        ]),
+                        address : new FormControl('',Validators.required)
+                        });
+====>> Angular Custom form Validation
+        We have done the custom validation on a simple login page with the help of form builder. 
+        > We have created manually one new folder under app folder named as validators 
+        > noSpace.validators.ts. In this ts file we will import two module named as AbstractControl and ValidationErrors 
+        > then create a export class 
+        > under that class make a static function so that we dont have to initialize it whenever used in any component.ts file for providing validation to fields 
+        > in that function pass the control parameter as a AbstractControl type and scope it will ValidationErrors or null return type 
+        > if the logic is true then return the object with validtion error name else return null 
+        > the use that validation error name in html file of a component to show that validation error.
