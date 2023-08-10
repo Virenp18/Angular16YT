@@ -87,7 +87,24 @@ Write in cmd not in vs terminal
         > We have created manually one new folder under app folder named as validators 
         > noSpace.validators.ts. In this ts file we will import two module named as AbstractControl and ValidationErrors 
         > then create a export class 
-        > under that class make a static function so that we dont have to initialize it whenever used in any component.ts file for providing validation to fields 
+        > under that class make a static function so that we don't have to initialize it whenever used in any component.ts file for providing validation to fields 
         > in that function pass the control parameter as a AbstractControl type and scope it will ValidationErrors or null return type 
-        > if the logic is true then return the object with validtion error name else return null 
+        > if the logic is true then return the object with validation error name else return null 
         > the use that validation error name in html file of a component to show that validation error.
+====>> Angular Routing
+        When we start this course and create a angular project there was a option which tell us that do you want the routing but we chose "No" at that time. But now, we will know about routing which means that how to navigate from one page to another.
+        [Steps] (manual)
+        1. Go to app module ts file and include the RouterModule and in import [] include RouterModule.forRoot([
+                {
+                        path : 'enter url path',
+                        component : enter the declaration component value from declaration [] in app.module.ts you want to render
+                }
+        ])
+        2. After that go to app.component.html file and remove one component from there and add button with routerlink attr with '/pathname' as given in module.
+
+        If we want to go back to the base url / homepage then simply write inside the app.component.html file inside the routerlink pass "/".
+
+        now if we wnat that when we ho to home nutton instead of url with "/home" it should simply run on localhost:4200. So for that we will just go to module file and make the path to empty for the generated home component.
+
+        href / routerlink 
+        So, in angular we will see that href is completely deprecated as it is not a best practice to use href because it loads whole web page. So, therefore it is not known as SPA if the page is loading completely.

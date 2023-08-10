@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +14,7 @@ import { PipesComponent } from './pipes/pipes.component';
 import { CustomPipe } from './pipe/custom.pipe';
 import { FormsComponent } from './forms/forms.component';
 import { CusformvalComponent } from './cusformval/cusformval.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -26,12 +28,17 @@ import { CusformvalComponent } from './cusformval/cusformval.component';
     CustomPipe,
     FormsComponent,
     CusformvalComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule.forRoot([
+      { path : 'customValidation' , component : CusformvalComponent},
+      { path : '' , component : HomeComponent},
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
