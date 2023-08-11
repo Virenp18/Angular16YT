@@ -15,6 +15,8 @@ import { CustomPipe } from './pipe/custom.pipe';
 import { FormsComponent } from './forms/forms.component';
 import { CusformvalComponent } from './cusformval/cusformval.component';
 import { HomeComponent } from './home/home.component';
+import { AllPostsComponent } from './all-posts/all-posts.component';
+import { SinglePostComponent } from './single-post/single-post.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { HomeComponent } from './home/home.component';
     FormsComponent,
     CusformvalComponent,
     HomeComponent,
+    AllPostsComponent,
+    SinglePostComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,6 +42,12 @@ import { HomeComponent } from './home/home.component';
     RouterModule.forRoot([
       { path : 'customValidation' , component : CusformvalComponent},
       { path : '' , component : HomeComponent},
+      { path : 'taskOne' , component : TaskOneComponent},
+      { path : 'allPosts' , component : AllPostsComponent},
+      { path : 'postDirectives' , component : DirectivesComponent},
+      { path : 'postForms' , component : FormsComponent},
+      { path : 'pipes' , component : PipesComponent},
+      { path : 'post/:post_id/:post_title' , component : SinglePostComponent},
     ])
   ],
   providers: [],

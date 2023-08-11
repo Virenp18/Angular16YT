@@ -100,11 +100,35 @@ Write in cmd not in vs terminal
                         component : enter the declaration component value from declaration [] in app.module.ts you want to render
                 }
         ])
-        2. After that go to app.component.html file and remove one component from there and add button with routerlink attr with '/pathname' as given in module.
+        2. After that go to app.component.html file and remove one component from there and add button with routerLink attr with '/pathname' as given in module.
 
-        If we want to go back to the base url / homepage then simply write inside the app.component.html file inside the routerlink pass "/".
+        If we want to go back to the base url / homepage then simply write inside the app.component.html file inside the routerLink pass "/".
 
-        now if we wnat that when we ho to home nutton instead of url with "/home" it should simply run on localhost:4200. So for that we will just go to module file and make the path to empty for the generated home component.
+        now if we want that when we ho to home button instead of url with "/home" it should simply run on localhost:4200. So for that we will just go to module file and make the path to empty for the generated home component.
 
-        href / routerlink 
+        href / routerLink 
         So, in angular we will see that href is completely deprecated as it is not a best practice to use href because it loads whole web page. So, therefore it is not known as SPA if the page is loading completely.
+
+        [Routing with id's]
+        -> if you want to send multiple args with the url of routerlink, we can also writ eit as [routerLink] = ['/path', id].
+        -> Next you have to set the path in the router module array with the same path as in router link and give a new component name
+
+        [How to get the id sent to a component on routerlink attr]
+        -> So we will import the module from the routermodule named as ActivatedRoute
+        -> Then we will inject it to the constructor and on ngInit() we will write
+                this.injectedscopename.paramMap.subscribe(value => {
+                        console.log(value);
+                })
+        ->when console.log the value you see params and inside that you se the key which is of same name as you gave in app.module.ts in the path/:key_name
+        -> to get it from value we have 4 methods which are get, getAll, has, keys
+
+        [Observables]
+        So the main difference between Observables and normal function is that a nor mal function cannot return multiple times but an Observables can.
+        To create an Observables we need to import the Observable module into the component and on Nginit initialize it.
+        example => const testObs$ = new Observable(observer => {
+                                observer.next('hello');
+                        }).subscribe(value => {
+                                console.log(value);
+                        });
+        It is important to subscribe the observable as then observer.next() value will not be returned.
+        It is also important to unsubscribe the observable as keeping the observable subscribed is not a good practice.
